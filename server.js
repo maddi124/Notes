@@ -7,7 +7,7 @@ const app = express();
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(express.static('public'));
+app.use(express.static('./Develop/public'));
 
 const { notes } = require('./Develop/db/db.json');
 
@@ -19,7 +19,15 @@ app.get('/notes',(req,res)=>{
   res.sendFile(path.join(__dirname, './Develop/public/notes.html'));
 });
 
-
+// function createnewnotes(body,notesarray){
+// const note = body;
+// notesarray.push(note);
+// fs.writeFileSync(
+//   path.join(_dirname,'./Develop/db/db.json'),
+//   JSON.stringify({db:notesarray},null,2)
+// );
+// return note;
+// }
 app.get('/api/notes', (req, res) => {
   res.json(notes);
 });
