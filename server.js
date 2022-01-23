@@ -31,6 +31,7 @@ app.get('/api/notes', (req, res) => {
 app.post('/api/notes', (req, res) => {
 const newNotes=req.body;
 const data = JSON.parse(fs.readFileSync('./Develop/db/db.json', 'utf8'));
+
 const length=(data.length).toString();
 newNotes.id=length;
 
@@ -55,7 +56,7 @@ const result = data.filter(note=>note.id.toString() !==deleteid);
 
 fs.writeFileSync('./Develop/db/db.json', JSON.stringify(result));
 
-// console.log(`deleted note with id : ${deleteid}`);
+console.log(`deleted note with id : ${deleteid}`);
 
 res.json(result);
 })
@@ -67,7 +68,7 @@ app.listen(PORT, () => {
 });
 
 
+//http://localhost:3000/
+//http://localhost:3000/notes
 
 //http://localhost:3000/api/notes
-
-//http://localhost:3000/api/db
