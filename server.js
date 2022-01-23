@@ -30,19 +30,18 @@ app.get('/api/notes', (req, res) => {
 
 app.post('/api/notes', (req, res) => {
 const newNotes=req.body;
-console.log("\n\nPOST request - New Note : " + JSON.stringify(newNotes));
-newNotes.id='1';
-newNotes.id++;
-
 const data = JSON.parse(fs.readFileSync('./Develop/db/db.json', "utf8"));
-console.log("\nGET request - Returning notes data: " + JSON.stringify(data));
+const length=(data.length).toString();
+newNotes.id=length;
+
+console.log('New Note : ' + JSON.stringify(newNotes));
 
 data.push(newNotes);
 
 fs.writeFileSync('./Develop/db/db.json', JSON.stringify(data));
 
 res.json(data);
-})
+});
 
 
 app.listen(PORT, () => {
