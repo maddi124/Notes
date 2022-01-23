@@ -30,18 +30,36 @@ app.get('/api/notes', (req, res) => {
 
 app.post('/api/notes', (req, res) => {
 const newNotes=req.body;
-const data = JSON.parse(fs.readFileSync('./Develop/db/db.json', "utf8"));
+const data = JSON.parse(fs.readFileSync('./Develop/db/db.json', 'utf8'));
 const length=(data.length).toString();
 newNotes.id=length;
 
-console.log('New Note : ' + JSON.stringify(newNotes));
+console.log('New Note :\n ' + JSON.stringify(newNotes));
 
 data.push(newNotes);
+
 
 fs.writeFileSync('./Develop/db/db.json', JSON.stringify(data));
 
 res.json(data);
 });
+
+app.delete('/api/notes/:id',(req,res)=>{
+
+const deleteid = req.params.id;
+
+
+const data = JSON.parse(fs.readFileSync('./Develop/db/db.json', 'utf8'));
+
+const result = data.filter(note=>note.id.toString() !==deleteid);
+
+fs.writeFileSync('./Develop/db/db.json', JSON.stringify(result));
+
+// console.log(`deleted note with id : ${deleteid}`);
+
+res.json(result);
+})
+
 
 
 app.listen(PORT, () => {
