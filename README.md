@@ -2,6 +2,10 @@
 # Description
 For this week challenge, We were given a starter code for an application called Note Taker that used to write ans save notes. We had to use an Express.js back-end that will save and retrieve note data from a JSON file.
 
+
+
+![Note Taker](./Develop/public/assets/images/note-taker.png) 
+
 # Table of contents
 [Installation](#Installation)<br>
 [User Story](#User-Story)<br>
