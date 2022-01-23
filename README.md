@@ -6,11 +6,16 @@ For this week challenge, We were given a starter code for an application called 
 [Installation](#Installation)<br>
 [User Story](#User-Story)<br>
 [Acceptance Criteria](#Acceptance-Criteria)<br>
+[Credits](#Credits)<br>
+[Walkthrough Video](#Walkthrough-Video)<br>
 [Bonus](#Bonus:-+10-Points)<br>
+
 # Installation
+You can use the `-y` flag to skip the package questionnaire and leave default answers
 ```
 npm init -y
 ```
+ You can use `npm i` as a shortcut for `npm install`
 ```
 npm i express
 ```
@@ -25,6 +30,12 @@ app.get('/', function (req, res) {
 
 app.listen(3000)
 ```
+# Credits
+GitHub: https://github.com/maddi124 <br>
+### Starter Code:
+GitHub: https://github.com/coding-boot-camp/miniature-eureka.git
+# Walkthrough Video
+https://watch.screencastify.com/v/VF0KqntgYFDoLHGQq7O6
 # User Story
 ``` 
 AS A small business owner
